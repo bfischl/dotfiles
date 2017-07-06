@@ -2,7 +2,7 @@
 ! urxvt
 URxvt*buffered: true
 URxvt*cursorBlink: true
-URxvt*font:  xft:inconsolata:size=10:antialias=true
+URxvt*font:  xft:Hack:size=10:antialias=true
 URxvt*depth: 32
 URxvt*borderless: 1
 URxvt*scrollBar: false
@@ -121,3 +121,4 @@ XTerm*vt100.colorBDMode    : True
 XTerm*vt100.colorULMode    : True
 XTerm*vt100.colorRVMode    : False
 XTerm*vt100.veryBoldColors : 6
+PS1='\[\e]0;\u@\h: \w\a\]\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$'
