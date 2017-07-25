@@ -122,3 +122,6 @@ XTerm*vt100.colorULMode    : True
 XTerm*vt100.colorRVMode    : False
 XTerm*vt100.veryBoldColors : 6
 PS1='\[\e]0;\u@\h: \w\a\]\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$'
+
+*background : _background
+*foreground : _foreground
