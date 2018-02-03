@@ -132,8 +132,8 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
-gaps inner 40
-gaps outer 30
+gaps inner 20
+gaps outer 10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
