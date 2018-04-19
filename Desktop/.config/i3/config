@@ -232,8 +232,7 @@ client.urgent		$urgent-bg-color   $urgent-bg-color   $text-color	   $bg-color
 exec syncthing -no-browser
 exec keepass2
 exec compton -f 
-exec firefox
 exec LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libcurl.so.3:/usr/lib/spotifywm.so /usr/share/spotify/spotify
 exec thunderbird
-exec feh --randomize --bg-fill /media/WD1TB/Wallpapers/*
+exec feh --randomize --bg-fill /home/brad/Wallpapers/*
 exec xrandr --output DP-5 --auto --left-of HDMI-0
