@@ -190,7 +190,7 @@ new_window none
 bar {
         i3bar_command i3bar -t
 	colors {
-		background rgba:0200/0200/0200/0200
+		background $bg-color
 		separator #757575
 		focused_workspace $bg-color $bg-color $text-color
 		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
