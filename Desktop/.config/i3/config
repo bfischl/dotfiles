@@ -8,7 +8,7 @@
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
-set $bg-color                   #242424
+set $bg-color                   #000002
 set $inactive-bg-color          #242424
 set $text-color                 #f3f4f5
 set $inactive-text-color        #676E7D
@@ -64,7 +64,7 @@ bindsym $mod+f exec firefox
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 50 -padding 100 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 14"
+bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 50 -padding 10 -opacity "85" -bw 0  -font "Hack 10"
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -213,9 +213,9 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPrev exec mpc prev
 
 bindsym $mod+Shift+greater move workspace to output right
 bindsym $mod+Shift+less    move workspace to output left
