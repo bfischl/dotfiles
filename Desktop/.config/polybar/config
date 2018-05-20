@@ -1,11 +1,14 @@
+[global/wm]
+override-redirect = true
+[colors]
+green = #99cc99
+seethrough = #00000002
 [bar/top]
 monitor = DP-5
 width = 100%
-height = 20
-offset-y = 20
-background = #00000002
+height = 30
+background = ${colors.seethrough}
 foreground = #ccffffff
-
 line-color = ${bar/bottom.background}
 line-size = 16
 
@@ -24,7 +27,7 @@ modules-right = wan wired-network date
 monitor = HDMI-0
 width = 100%
 height = 34
-background = #00000000
+background = ${colors.seethrough}
 foreground = #ccffffff
 spacing = 2
 line-size = 16
@@ -153,9 +156,9 @@ label-mode-padding = 2
 label-mode-background = #e60053
 
 label-focused = %name%
-label-focused-foreground = #aaff77
+label-focused-foreground = ${colors.green}
 label-focused-background = #00000002
-label-focused-underline = #aaff77
+label-focused-underline = ${colors.green}
 label-focused-padding = 2
 
 label-unfocused = %name%
@@ -163,7 +166,7 @@ label-unfocused-padding = 2
 label-unfocused-background = #00000002
 
 label-visible = %name%
-label-visible-underline = #aaff77
+label-visible-underline = ${colors.green}
 label-visible-background = #00000002
 label-visible-padding = 2
 
@@ -179,16 +182,16 @@ label = CPU
 
 ramp-coreload-0 = ▁
 ramp-coreload-0-font = 2
-ramp-coreload-0-foreground = #aaff77
+ramp-coreload-0-foreground = ${colors.green}
 ramp-coreload-1 = ▂
 ramp-coreload-1-font = 2
-ramp-coreload-1-foreground = #aaff77
+ramp-coreload-1-foreground = ${colors.green}
 ramp-coreload-2 = ▃
 ramp-coreload-2-font = 2
-ramp-coreload-2-foreground = #aaff77
+ramp-coreload-2-foreground = ${colors.green}
 ramp-coreload-3 = ▄
 ramp-coreload-3-font = 2
-ramp-coreload-3-foreground = #aaff77
+ramp-coreload-3-foreground = ${colors.green}
 ramp-coreload-4 = ▅
 ramp-coreload-4-font = 2
 ramp-coreload-4-foreground = #fba922
@@ -204,8 +207,10 @@ ramp-coreload-7-foreground = #ff5555
 
 [module/date]
 type = internal/date
-date =    %%{F#99}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
-date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
+format = <label>
+label = %date% %time%
+date = %Y-%m-%d
+time = %H:%M
 
 [module/memory]
 type = internal/memory
@@ -213,8 +218,8 @@ format = <label> <bar-used>
 label = RAM
 
 bar-used-width = 30
-bar-used-foreground-0 = #aaff77
-bar-used-foreground-1 = #aaff77
+bar-used-foreground-0 = ${colors.green}
+bar-used-foreground-1 = ${colors.green}
 bar-used-foreground-2 = #fba922
 bar-used-foreground-3 = #ff5555
 bar-used-indicator = |
@@ -242,7 +247,7 @@ toggle-off-foreground = #55
 
 bar-progress-width = 45
 bar-progress-format = %{A4:mpdseek+2: A5:mpdseek-2:}%fill%%indicator%%empty%%{A A}
-bar-progress-foreground-0 = #aaff77 
+bar-progress-foreground-0 = ${colors.green} 
 bar-progress-indicator = |
 bar-progress-indicator-foreground = #ff
 bar-progress-indicator-font = 3
@@ -300,10 +305,9 @@ speaker-soundcard = default
 
 master-mixer = Master
 
-format-volume = <ramp-volume> <label-volume>
+format-volume =  <label-volume>
 label-muted =   muted
-label-muted-foreground = #66
-
+label-muted-foreground = #66 
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
