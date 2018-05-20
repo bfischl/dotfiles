@@ -3,7 +3,7 @@ monitor = DP-5
 width = 100%
 height = 20
 offset-y = 20
-background = #80000002
+background = #00000002
 foreground = #ccffffff
 
 line-color = ${bar/bottom.background}
@@ -39,7 +39,7 @@ font-3 = FontAwesome:size=11;0
 monitor = DP-5
 bottom = true
 width = 100%
-height = 24
+height = 30
 
 background = ${bar/top.background}
 foreground = ${bar/top.foreground}
@@ -66,7 +66,7 @@ modules-right = cpu memory
 monitor = HDMI-0
 bottom = true
 width = 100%
-height = 24
+height = 30
 background = ${bar/top.background}
 foreground = ${bar/top.foreground}
 line-color = ${bar/top.background}
@@ -154,17 +154,17 @@ label-mode-background = #e60053
 
 label-focused = %name%
 label-focused-foreground = #aaff77
-label-focused-background = #2d2d2d
+label-focused-background = #00000002
 label-focused-underline = #aaff77
 label-focused-padding = 2
 
 label-unfocused = %name%
 label-unfocused-padding = 2
-label-unfocused-background = #80000002
+label-unfocused-background = #00000002
 
 label-visible = %name%
 label-visible-underline = #aaff77
-label-visible-background = #80000002
+label-visible-background = #00000002
 label-visible-padding = 2
 
 label-separator = |
@@ -228,7 +228,7 @@ bar-used-empty-foreground = #444444
 
 [module/mpd]
 type = internal/mpd
-format-online = <bar-progress> <label-time>  <label-song>
+format-online = %{O10}<bar-progress> <label-time> <label-song>
 label-song = %title:0:20%-%artist:0:10%
 icon-play = 
 icon-pause = 
@@ -237,7 +237,6 @@ icon-prev = 
 icon-next = 
 icon-random = 
 icon-repeat = 
-
 toggle-on-foreground =
 toggle-off-foreground = #55
 
