@@ -7,9 +7,9 @@ URxvt*depth: 32
 URxvt*borderless: 1
 URxvt*scrollBar: false
 URxvt*loginShell: true
-!!urxvt*background: rgba:0000/0000/0200/c800
-URxvt.transparent: true
-URxvt.shading: 	   20
+Urxvt*depth: 32
+Urxvt*background: [50]#2d2d2d
+
 Urxvt*secondaryScroll:  true    # Enable Shift-PageUp/Down in screen
 URxvt*saveLines: 5000
 URxvt*termName: rxvt-unicode
@@ -66,7 +66,7 @@ URxvt.internalBorder:20
 ! TomorrowNightEighties.t_foreground
 #define _foreground    #cccccc
 ! TomorrowNightEighties.t_background
-#define _background    #2d2d2d
+#define _background    [80]#000002
 #define _cursorColor   #aeafad
 
 URxvt*color0         : _color0

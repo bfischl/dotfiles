@@ -18,11 +18,11 @@ set $border-color               #929292
 set $workspace1 "1: "
 set $workspace2 "2:  "
 set $workspace3 "3: "
-set $workspace4 "4: "
+set $workspace4 "4: "
 set $workspace5 "5: "
 set $workspace6 "6: "
 set $workspace7 "7: "
-assign [class="Spotify"] $workspace4
+assign [class="ncmpcpp"] $workspace4
 assign [class="spotify"] $workspace4
 assign [class="Firefox"] $workspace2
 assign [class="Thunderbird"] $workspace3
@@ -134,8 +134,8 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
-gaps inner 20
-gaps outer 10
+gaps inner 15
+gaps outer 2
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
@@ -187,18 +187,18 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 new_window none
-bar {
-        i3bar_command i3bar -t
-	colors {
-		background $bg-color
-		separator #757575
-		focused_workspace $bg-color $bg-color $text-color
-		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-		urgent_workspace   $urgent-bg-color   $urgent-bg-color  $text-color
-	}
-	position top
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
-}
+#bar {
+#        i3bar_command i3bar -t
+#	colors {
+#		background $bg-color
+#		separator #757575
+#		focused_workspace $bg-color $bg-color $text-color
+#		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+#		urgent_workspace   $urgent-bg-color   $urgent-bg-color  $text-color
+#	}
+#	position top
+#       status_command i3blocks -c ~/.config/i3/i3blocks.conf
+#}
 # i3lock
 bindsym $mod+shift+x exec ~/.config/i3/lockscript.sh
 
@@ -235,7 +235,9 @@ client.urgent		$urgent-bg-color   $urgent-bg-color   $text-color	   $bg-color
 exec syncthing -no-browser
 exec keepassxc
 exec compton -f 
-exec LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libcurl.so.3:/usr/lib/spotifywm.so /usr/share/spotify/spotify
 exec thunderbird
+exec mopidy
+exec uxrvt -e ncmpcpp
 exec feh --randomize --bg-fill /media/WD1TB/Wallpapers/*
 exec xrandr --output DP-5 --auto --left-of HDMI-0
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
