@@ -13,8 +13,8 @@ line-color = ${bar/bottom.background}
 line-size = 16
 
 spacing = 2
-padding-right = 5
 module-margin = 1
+padding-right = 2
 separator = |
 font-0 = Hack:size=10;-1
 font-3 = MaterialIcons:size=10;0
@@ -22,7 +22,7 @@ font-2 = Termsynu:size=8:antialias=false;-2
 font-1 = FontAwesome:size=10;0
 
 modules-left = mpd volume
-modules-right = wan wired-network date
+modules-right = wan wired-network date weather
 [bar/top2]
 monitor = HDMI-0
 width = 100%
@@ -291,12 +291,18 @@ label-disconnected-foreground = #66
 
 [module/wan]
 type = custom/script
-exec= ~/.config/polybar/wan
+exec = ~/.config/polybar/wan
 tail = true
 interval = 30
 format = <label>
 label = WAN %output:0:15%
 
+[module/weather]
+type = custom/script
+exec = ~/.config/polybar/weather
+tail = true
+interval = 900
+format = <label>
 
 [module/volume]
 type = internal/volume
