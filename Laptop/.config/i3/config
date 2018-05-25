@@ -8,7 +8,7 @@
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
-set $bg-color                   #242424
+set $bg-color                   #000002
 set $inactive-bg-color          #242424
 set $text-color                 #f3f4f5
 set $inactive-text-color        #676E7D
@@ -18,19 +18,19 @@ set $border-color               #929292
 set $workspace1 "1: "
 set $workspace2 "2:  "
 set $workspace3 "3: "
-set $workspace4 "4: "
+set $workspace4 "4: "
 set $workspace5 "5: "
 set $workspace6 "6: "
 set $workspace7 "7: "
-assign [class="Spotify"] $workspace4
+assign [class="ncmpcpp"] $workspace4
 assign [class="spotify"] $workspace4
 assign [class="Firefox"] $workspace2
 assign [class="Thunderbird"] $workspace3
 assign [class="jetbrains-pycharm-ce"] $workspace5
 assign [class="VirtualBox"] $workspace6
 assign [class="virtualbox"] $workspace6
-assign [class="keepass2"] $workspace7
-assign [class="KeePass2"] $workspace7
+assign [class="keepassxc"] $workspace7
+assign [class="KeePassxc"] $workspace7
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -54,6 +54,9 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec urxvt 
 
+# start file manager -- Ranger
+bindsym $mod+s exec urxvt -e ranger
+
 # start firefox
 bindsym $mod+f exec firefox
 
@@ -61,7 +64,7 @@ bindsym $mod+f exec firefox
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 50 -padding 100 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 14"
+bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 50 -padding 10 -opacity "85" -bw 0  -font "Hack 10"
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -104,7 +107,6 @@ bindsym $mod+v split v
 bindsym $mod+Shift+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -132,8 +134,7 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
-gaps inner 40
-gaps outer 30
+gaps inner 15
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
@@ -185,17 +186,18 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 new_window none
-bar {
-	colors {
-		background #242424
-		separator #757575
-		focused_workspace $bg-color $bg-color $text-color
-		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-		urgent_workspace   $urgent-bg-color   $urgent-bg-color  $text-color
-	}
-	position top
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
-}
+#bar {
+#        i3bar_command i3bar -t
+#	colors {
+#		background $bg-color
+#		separator #757575
+#		focused_workspace $bg-color $bg-color $text-color
+#		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+#		urgent_workspace   $urgent-bg-color   $urgent-bg-color  $text-color
+#	}
+#	position top
+#       status_command i3blocks -c ~/.config/i3/i3blocks.conf
+#}
 # i3lock
 bindsym $mod+shift+x exec ~/.config/i3/lockscript.sh
 
@@ -210,9 +212,9 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPrev exec mpc prev
 
 bindsym $mod+Shift+greater move workspace to output right
 bindsym $mod+Shift+less    move workspace to output left
@@ -230,9 +232,11 @@ client.focused_inactive	$inactive-bg-color $inactive-bg-color $inactive-text-col
 client.urgent		$urgent-bg-color   $urgent-bg-color   $text-color	   $bg-color
 
 exec syncthing -no-browser
-exec keepass2
+exec keepassxc
 exec compton -f 
-exec LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libcurl.so.3:/usr/lib/spotifywm.so /usr/share/spotify/spotify
 exec thunderbird
-exec feh --randomize --bg-fill /home/brad/Wallpapers/*
+exec mopidy
+exec uxrvt -e ncmpcpp
+exec feh --randomize --bg-fill /media/WD1TB/Wallpapers/*
 exec xrandr --output DP-5 --auto --left-of HDMI-0
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
