@@ -22,7 +22,7 @@ font-2 = Termsynu:size=8:antialias=false;-2
 font-1 = FontAwesome:size=10;0
 
 modules-left = mpd volume
-modules-right = wan wired-network date weather
+modules-right = wan wired-network date weather battery
 [bar/top2]
 monitor = HDMI-0
 width = 100%
@@ -109,17 +109,23 @@ bar-empty-foreground = #44
 type = internal/battery
 full-at = 98
 
-format-charging = <animation-charging> <label-charging>
+format-charging = <ramp-capacity> <label-charging>
+format-charging-foreground = ${colors.green}
 format-discharging = <ramp-capacity> <label-discharging>
 format-full = <ramp-capacity> <label-full>
-
+format-full-foreground = ${colors.green}
+label-full = %percentage%%
+label-full-foreground = ${colors.green}
+label-charging-foreground = ${colors.green}
 ramp-capacity-0 = 
 ramp-capacity-0-foreground = #f53c3c
 ramp-capacity-1 = 
 ramp-capacity-1-foreground = #ffa900
 ramp-capacity-2 = 
 ramp-capacity-3 = 
+ramp-capacity-3-foreground = ${colors.green}
 ramp-capacity-4 = 
+ramp-capacity-4-foreground = ${colors.green}
 
 bar-capacity-width = 10
 bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
