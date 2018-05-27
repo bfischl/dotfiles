@@ -36,7 +36,7 @@ bindsym $mod+h split h
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
-bindsym $mod+m exec 'firefox -new-window http://1270.0.0.1:6680/iris/#'
+bindsym $mod+m exec firefox -new-window http://127.0.0.1:6680/iris/#
 bindsym $mod+n exec feh --randomize --bg-fill /media/WD1TB/Wallpapers/*
 bindsym $mod+r mode "resize"
 bindsym $mod+s exec urxvt -e ranger
@@ -136,13 +136,7 @@ exec keepassxc
 exec compton -f 
 exec thunderbird
 exec mopidy
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec feh --randomize --bg-fill /media/WD1TB/Wallpapers/*
 exec xrandr --output DP-5 --auto --left-of HDMI-0
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec --no-startup-id i3-msg '$workspace4; exec firefox http://127.0.0.1:6680/iris/# ; $workspace1'
-exec --no-startup-id i3-msg '$workspace2; exec firefox ;'
-workspace $workspace2 output HDMI-0
-workspace $workspace3 output HDMI-0
-workspace $workspace4 output HDMI-0
-workspace $workspace1 output DP-5
-exec --nostartup-id i3-msg '$workspace1; $workspace2;'
+xec_always --no-startup-id $HOME/.config/polybar/launch.sh
