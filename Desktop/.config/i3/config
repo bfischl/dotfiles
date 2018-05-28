@@ -139,4 +139,3 @@ exec mopidy
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec feh --randomize --bg-fill /media/WD1TB/Wallpapers/*
 exec xrandr --output DP-5 --auto --left-of HDMI-0
-xec_always --no-startup-id $HOME/.config/polybar/launch.sh
